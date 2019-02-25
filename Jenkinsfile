@@ -127,6 +127,7 @@ pipeline {
         *  Downloads gradle-wrapper.jar to the gradle/wrapper/ directory.
         **/
         stage('Bootstrap Gradlew') {
+            when { expression { changeClass != 'full' } }
             steps {
                 sh './bootstrap_gradlew.sh'
             }
